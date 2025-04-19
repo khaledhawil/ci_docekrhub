@@ -1,0 +1,21 @@
+name: "Github Actions"
+on:
+  push:
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+   
+    steps:
+      - name: Checkout code 
+        uses: actions/checkout@v2
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v1
+        with: 
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and Push Docker Image
+        env:
+          REPOSITORY: nginx
+          IMAGE_TAG: latest
+        run: |
+          docker build -t ${{ sectest.DOCKERHUB.USERNAME }}/$
