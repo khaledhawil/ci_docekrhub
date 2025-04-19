@@ -1,7 +1,6 @@
-FROM nginx
+FROM nginx 
 
 
-RUN apt update -y  
-
+RUN apt update -y 
 
 EXPOSE 8080
